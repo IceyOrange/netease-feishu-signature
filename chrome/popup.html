@@ -1,0 +1,69 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>网易云听歌签名</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main aria-busy="false">
+    <header class="masthead">
+      <div class="brand-mark" aria-hidden="true"><img src="icons/icon-128.png" alt=""></div>
+      <div class="brand-copy">
+        <p class="eyebrow">NETEASE × FEISHU</p>
+        <h1>听歌签名</h1>
+      </div>
+      <p class="edition"><span>MUSIC</span><span>STATUS</span></p>
+    </header>
+
+    <div class="settings-list">
+      <section aria-label="网易云账号" class="setting-group netease-group">
+        <div class="setting-row">
+          <span class="step">01</span>
+          <div class="account-copy"><strong>网易云音乐</strong><p id="neteaseAccount" class="account-status">未登录</p></div>
+          <button id="neteaseLogin" class="small-button" type="button">登录</button>
+        </div>
+        <div class="recent-row">
+          <span><i aria-hidden="true">♪</i>最近播放</span>
+          <p id="song">登录后自动读取</p>
+        </div>
+      </section>
+
+      <section aria-label="飞书账号" class="setting-group feishu-group">
+        <div class="setting-row">
+          <span class="step">02</span>
+          <div class="account-copy"><strong>飞书账号</strong><p id="account" class="account-status">未登录</p></div>
+          <button id="check" class="small-button" type="button">检查</button>
+        </div>
+        <div id="pairing" class="confirm-box" hidden>
+          <p id="current"></p>
+          <button id="bind" type="button">绑定此账号</button>
+        </div>
+      </section>
+
+      <section aria-label="每日同步设置" class="schedule-row">
+        <span class="step">03</span>
+        <label for="syncTime"><strong>每日同步</strong><small>香港时间</small></label>
+        <input id="syncTime" type="time" value="09:30" aria-label="每日同步时间" disabled>
+        <label class="switch-label" aria-label="开启每日自动同步"><input id="auto" type="checkbox" role="switch" disabled></label>
+      </section>
+    </div>
+
+    <div class="actions">
+      <button id="sync" class="primary" type="button" disabled>立即同步 <span aria-hidden="true">→</span></button>
+      <button id="unbind" class="secondary" type="button" aria-expanded="false" disabled>解除绑定</button>
+    </div>
+    <div id="unbindConfirm" class="action-confirm" hidden>
+      <p>解除后会关闭每日同步，但不会修改飞书当前签名。</p>
+      <div>
+        <button id="cancelUnbind" type="button">取消</button>
+        <button id="confirmUnbind" type="button">确认解除</button>
+      </div>
+    </div>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <script type="module" src="popup.mjs"></script>
+</body>
+</html>
