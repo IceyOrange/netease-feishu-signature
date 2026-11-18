@@ -1,0 +1,11 @@
+{
+  "name": "netease-feishu-signature",
+  "version": "3.0.0",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/validate.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
